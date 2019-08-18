@@ -5,7 +5,7 @@ module.exports = {
     port: 9001
   },
   database: {
-    url: `mongodb://${host}/node-express-skeleton-test`,
+    url: `mongodb://${host}/digitechbreak-node-express-skeleton-test`,
     properties: {
       useMongoClient: true
     }

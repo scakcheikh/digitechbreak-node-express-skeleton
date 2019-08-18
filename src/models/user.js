@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({
-  email: {
+  name: {
     type: String,
     required: true,
     index: { unique: true }
@@ -13,15 +13,12 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  role: {
-    type: String,
-    enum : ['user', 'admin'],
-    default: 'user'
-  },
-  items : [{
-    type: Schema.Types.ObjectId,
-    ref: 'Item'
-  }]
+  // rdv : [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Rdv'
+  // }]
+}, {
+    usePushEach: true
 });
 
 UserSchema.set('toJSON', {
@@ -31,13 +28,18 @@ UserSchema.set('toJSON', {
   }
 });
 
+// pre hook called when method 'save' is invoked 
 UserSchema.pre('save', function(next) {
-  if (!this.isModified('password')) return next();
+  var user = this;
 
+  // only hash the password if it has been modified (or is new)
+  if (!user.isModified('password')) return next();
+  //generate hash
   bcrypt.hash(this.password, 10, function(err, hash) {
     if (err) return next(err);
-
-    this.password = hash;
+    
+    // override the cleartext password with the hashed one
+    user.password = hash;
     next();
   });
 });
@@ -58,16 +60,6 @@ UserSchema.methods.verifyPassword = function(candidatePassword, callback) {
 
 UserSchema.methods.equals = function(user) {
   return this._id == user._id;
-};
-
-UserSchema.methods.canRead = function(object) {
-  return this.equals(object) ||
-    (object.owner && object.owner == this.id) ||
-    this.role == "admin";
-};
-
-UserSchema.methods.canEdit = function(object) {
-  return this.canRead(object); // can be extended later
 };
 
 UserSchema.plugin(mongoosePaginate);

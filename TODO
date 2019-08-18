@@ -1,0 +1,3 @@
+ -- Remplire chaque controller
+ -- Créer un controller & model  & route pour rdv
+ -- Connect to DB using Mongoose.connect

@@ -1,11 +1,12 @@
 import express from 'express';
 
-import items from '../../controllers/items';
-import auth from '../../controllers/auth';
+import items from '../controllers/items';
+import auth from '../controllers/auth';
 
 const routes  = express.Router({ mergeParams: true });
 
-routes.use(auth.verifyToken);
+// Uncomment to allow authentication check
+// routes.use(auth.verifyToken);
 
 routes.route('/')
   .get(items.list)

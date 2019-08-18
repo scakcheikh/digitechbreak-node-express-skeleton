@@ -1,16 +1,16 @@
 {
-  "name": "node-express-skeleton",
+  "name": "digitechbreak-node-express-skeleton",
   "version": "1.0.0",
   "description": "Node.js + Express skeleton application",
   "main": "index.js",
   "scripts": {
     "start": "export NODE_ENV=dev NODE_CONFIG_DIR=./src/config/ && nodemon -w src --exec \"babel-node src/app.js --presets es2015,stage-0\"",
     "test": "export NODE_ENV=test NODE_CONFIG_DIR=./src/config/ && mocha --timeout 10000 --compilers js:babel-core/register ./src/test/*.js ",
-    "populatedb": "babel-node --presets es2015 ./node_modules/pow-mongodb-fixtures/bin/mongofixtures node-express-skeleton-dev ./src/test/fixtures"
+    "populatedb": "babel-node --presets es2015 ./node_modules/pow-mongodb-fixtures/bin/mongofixtures digitechbreak-node-express-skeleton-dev ./src/test/fixtures"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/romandunets/node-express-skeleton"
+    "url": "git+https://github.com/scakcheikh/digitechbreak-node-express-skeleton"
   },
   "keywords": [
     "REST",
@@ -21,9 +21,9 @@
   "author": "Roman Dunets",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/romandunets/node-express-skeleton"
+    "url": "https://github.com/scakcheikh/digitechbreak-node-express-skeleton"
   },
-  "homepage": "https://github.com/romandunets/node-express-skeleton#readme",
+  "homepage": "https://github.com/scakcheikh/digitechbreak-node-express-skeleton#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",

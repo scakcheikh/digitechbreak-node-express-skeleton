@@ -6,8 +6,7 @@ import pagination from '../helpers/pagination';
 const User = mongoose.model('User');
 
 exports.list = function(req, res) {
-  if (req.currentUser.role != 'admin') return response.sendForbidden(res);
-  User.paginate(request.getFilteringOptions(req, ['email', 'role']), request.getRequestOptions(req), function(err, result) {
+  User.paginate(request.getFilteringOptions(req, []), request.getRequestOptions(req), function(err, result) {
     if (err) return res.send(err);
     pagination.setPaginationHeaders(res, result);
     res.json(result.docs);
@@ -17,7 +16,6 @@ exports.list = function(req, res) {
 exports.read = function(req, res) {
   User.findById(req.params.id, function(err, user) {
     if (err) return response.sendNotFound(res);
-    if (!req.currentUser.canRead(user)) return response.sendForbidden(res);
     res.json(user);
   });
 };
@@ -34,7 +32,6 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
   const user = req.body;
   delete user.role;
-  if (!req.currentUser.canEdit({ _id: req.params.id })) return response.sendForbidden(res);
   User.findOneAndUpdate({ _id: req.params.id }, user, { new: true, runValidators: true }, function(err, user) {
     if (err) return response.sendBadRequest(res, err);
     res.json(user);
@@ -44,7 +41,6 @@ exports.update = function(req, res) {
 exports.delete = function(req, res) {
   User.remove({ _id: req.params.id }, function(err, user) {
     if (err) return res.send(err);
-    if (!req.currentUser.canEdit(user)) return response.sendForbidden(res);
     res.json({ message: 'User successfully deleted' });
   });
 };

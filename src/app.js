@@ -6,6 +6,7 @@ import jwt from'jsonwebtoken';
 
 import User from './models/user';
 import Item from './models/item';
+// import Rdv from './models/rdv';
 
 import config from 'config';
 import db from './db/db';

@@ -9,7 +9,7 @@ const privateKey = config.key.privateKey;
 const tokenExpireInMinutes = config.key.tokenExpireInMinutes;
 
 exports.authenticate = function(req, res) {
-  User.findOne({ email: req.body.email })
+  User.findOne({ name: req.body.name })
   .exec(function(err, user) {
     if (err) throw err;
 
