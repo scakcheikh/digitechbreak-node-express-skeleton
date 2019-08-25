@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
-import mongoosePaginate from 'mongoose-paginate';
-import bcrypt from 'bcrypt';
+var mongoosePaginate =require('mongoose-paginate');
+var mongoose = require('mongoose');
+
+const bcrypt = require("bcryptjs");
 
 const Schema = mongoose.Schema;
 const UserSchema = new Schema({

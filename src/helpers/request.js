@@ -1,5 +1,6 @@
-import pagination from './pagination';
-import sorting from './sorting';
+var pagination = require('../helpers/pagination');
+var sorting = require('../helpers/sorting');
+
 
 exports.getRequestOptions = function(req) {
   const paginationOptions = pagination.getPaginationOptions(req);

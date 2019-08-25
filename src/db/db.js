@@ -1,5 +1,7 @@
-import Mongoose from 'mongoose';
-import config from 'config';
+var config = require( '../config/dev');
+
+var Mongoose = require('mongoose');
+
 
 Mongoose.connect(config.database.url, config.database.properties);
 

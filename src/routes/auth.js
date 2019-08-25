@@ -1,6 +1,5 @@
-import express from 'express';
-
-import auth from '../controllers/auth';
+var express = require("express");
+var auth = require("../controllers/auth");
 
 const routes = express.Router();
 

@@ -1,16 +1,17 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from'mongoose';
-import morgan from 'morgan';
-import jwt from'jsonwebtoken';
+var  bodyParser = require( 'body-parser');
+var  morgan = require( 'morgan');
+var  mongoose = require('mongoose');
+var  jwt = require('jsonwebtoken');
 
-import User from './models/user';
-import Item from './models/item';
-// import Rdv from './models/rdv';
+var express = require("express");
 
-import config from 'config';
-import db from './db/db';
-import routes from './routes';
+var User = require( './models/user');
+var Item = require( './models/item');
+// var   Rdv = require( './models/rdv');
+
+var config = require( './config/dev');
+var db = require( './db/db');
+var routes = require( './routes');
 
 const app = express();
 

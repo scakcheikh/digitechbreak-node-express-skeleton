@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import jwt from 'jsonwebtoken';
-import config from 'config';
-import response from '../helpers/response';
+var  mongoose = require('mongoose');
+var  jwt = require('jsonwebtoken');
+var config = require( '../config/dev');
+var response = require('../helpers/response');
 
 const User = mongoose.model('User');
 

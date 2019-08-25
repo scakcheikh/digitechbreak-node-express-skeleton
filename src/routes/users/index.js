@@ -1,7 +1,6 @@
-import express from 'express';
-
-import users from '../../controllers/users';
-import auth from '../../controllers/auth';
+var   express = require('express');
+var   users = require('../../controllers/users');
+var   auth = require('../auth');
 
 const routes  = express.Router();
 

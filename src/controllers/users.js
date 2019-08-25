@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
-import response from '../helpers/response';
-import request from '../helpers/request';
-import pagination from '../helpers/pagination';
+var request = require('../helpers/request');
+var pagination = require('../helpers/pagination');
+var mongoose = require('mongoose');
+var response = require('../helpers/response')
 
 const User = mongoose.model('User');
 

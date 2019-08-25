@@ -1,10 +1,9 @@
-import express from 'express';
-
-import auth from './auth';
-import users from './users';
-// import rdv from './rdv';
-import items from './items';
-import response from '../helpers/response';
+var   express = require('express');
+var   items = require('./items');
+var   auth = require('./auth');
+var   users = require('./users');
+// var   rdv = require( './rdv';
+var   response = require('../helpers/response');
 
 const routes  = express.Router();
 

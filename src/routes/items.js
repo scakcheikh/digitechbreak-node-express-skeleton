@@ -1,7 +1,6 @@
-import express from 'express';
-
-import items from '../controllers/items';
-import auth from '../controllers/auth';
+var   express = require('express');
+var   items = require('../controllers/items');
+var   auth = require('../controllers/auth');
 
 const routes  = express.Router({ mergeParams: true });
 
